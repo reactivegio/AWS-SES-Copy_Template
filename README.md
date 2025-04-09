@@ -30,13 +30,21 @@ This will prompt you to enter your AWS credentials and configuration:
 The AWS CLI stores this information in two files:
 
 ```~/.aws/credentials``` (for access keys)
-
 ```~/.aws/config``` (for configurations like the region)
 
 On Windows, these files are located in:
 
 %USERPROFILE%\.aws\credentials
 %USERPROFILE%\.aws\config
+
+
+Get arn for configured account
+```aws sts get-caller-identity --profile default```
+
+```aws sts assume-role --role-arn arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME  --role-session-name MySession```
+ACCOUNT_ID: is the AWS Account ID where the role resides.
+ROLE_NAME: is the name of the role you want to assume.
+SESSION_NAME: is a unique name to identify the session.
 
 ### 2. Install Python and Boto3
 If you don’t have Python installed, download and install the latest version of Python from python.org.
